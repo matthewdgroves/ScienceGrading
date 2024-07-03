@@ -15,7 +15,7 @@ from numpy import interp
 #would be nice to get emailed copies every time someone runs it
 
 # Initialize the Dash app
-app = dash.Dash(__name__, prevent_initial_callbacks='initial_duplicate',external_stylesheets=[dbc.themes.COSMO])
+app = dash.Dash(prevent_initial_callbacks='initial_duplicate',external_stylesheets=[dbc.themes.COSMO])
 server = app.server
 
 row1 = html.Div(
