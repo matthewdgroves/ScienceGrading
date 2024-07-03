@@ -1,6 +1,6 @@
 import pandas as pd
 import dash
-from dash import dcc, html, Input, Output, State
+from dash import dcc, html, Input, Output, State, Dash
 from dash.exceptions import PreventUpdate
 from dash import dash_table
 import base64
@@ -15,7 +15,7 @@ from numpy import interp
 #would be nice to get emailed copies every time someone runs it
 
 # Initialize the Dash app
-app = dash.Dash(prevent_initial_callbacks='initial_duplicate',external_stylesheets=[dbc.themes.COSMO])
+app = Dash(prevent_initial_callbacks='initial_duplicate',external_stylesheets=[dbc.themes.COSMO])
 server = app.server
 
 row1 = html.Div(
