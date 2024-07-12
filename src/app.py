@@ -8,12 +8,6 @@ import io
 import dash_bootstrap_components as dbc
 from numpy import interp
 
-# from dash_bootstrap_templates import load_figure_template
-# load_figure_template('COSMO')
-
-#would be nice to get the more sophisticated Download instead of export, to give the exported file a date on it
-#would be nice to get emailed copies every time someone runs it
-
 # Initialize the Dash app
 app = Dash(prevent_initial_callbacks='initial_duplicate',external_stylesheets=[dbc.themes.COSMO])
 server = app.server
@@ -119,7 +113,7 @@ def parse_contents(contents, filename):
 
     return df
 
-# LT letter grade conversions
+# LT letter grade conversion for Honors
 def percentGradeH(LT_grade):
     #A
     if 3.95 <= LT_grade < 4:
@@ -264,6 +258,7 @@ def percentGradeH(LT_grade):
         pctGrade = interp(LT_grade, [0, 1.0], [50,60])
         return([pctGrade, "F"])
     
+# LT letter grade conversion for standard
 def percentGradeAdv(LT_grade):
     #A
     if 3.85 <= LT_grade < 4:
@@ -550,11 +545,20 @@ def merge_and_display(n_clicks, formative_contents, formative_filename, summativ
                 sort_action='native',
                 filter_action='native',
                 export_format='csv'
-        )
-    ])
-
+            )
+        ])
     ]
-# nice to add: could rename the file with the dates it was made
+
+if __name__ == '__main__':
+    app.run_server(debug=True, port=8051)
+
+
+# from dash_bootstrap_templates import load_figure_template
+# load_figure_template('COSMO')
+
+# Hope to add: get an emailed copy every time the app is run
+
+# Hope to add: could rename the exported file with the current date
 # # Callback to export the final data
 # @app.callback(
 #     Output("download-dataframe-csv", "data"),
@@ -564,6 +568,3 @@ def merge_and_display(n_clicks, formative_contents, formative_filename, summativ
 # )
 # def func(n_clicks, f_df):
 #     return dcc.send_data_frame(f_df[2].to_csv, "mydf.csv")
-
-if __name__ == '__main__':
-    app.run_server(debug=True, port=8051)
