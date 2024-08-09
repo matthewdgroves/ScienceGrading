@@ -17,6 +17,7 @@ row1 = html.Div(
         dbc.Row([
             dbc.Col([
                 html.H1("Science department grade calculator "),
+                html.A("Tutorial for downloading the necessary files from Canvas", href="https://www.youtube.com/watch?v=B8JD7nMiWZk", target="_blank"),
                 html.H5("First, upload your formative file and confirm that its contents look right. You should see a table with students, some student info, and all of your formative assignments and grades if you scroll to the right. "),
                 html.H5("Second, upload your summative file and confirm that its contents look right. It will appear below the first table, so you may have to scroll down. You should see a table with students, some student info, and all of your Learning Targets, with numbers between 0 and 4 for all of the values."),
                 html.H5("If your files look wrong, you can always refresh the page to try again"),
