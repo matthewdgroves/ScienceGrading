@@ -117,292 +117,134 @@ def parse_contents(contents, filename):
 # LT letter grade conversion for Honors
 def percentGradeH(LT_grade):
     #A
-    if 3.95 <= LT_grade < 4:
-        pctGrade = interp(LT_grade, [3.95, 4.0], [99,100])
-        return([pctGrade, "H A"])
-    if 3.9 <= LT_grade < 3.95:
-        pctGrade = interp(LT_grade, [3.9,3.95], [99,99])
-        return([pctGrade, "H A"])
-    if 3.85 <= LT_grade < 3.9:
-        pctGrade = interp(LT_grade, [3.85,3.9], [98,99])
-        return([pctGrade, "H A"])
-    if 3.8 <= LT_grade < 3.85:
-        pctGrade = interp(LT_grade, [3.8,3.85], [97,98])
-        return([pctGrade, "H A"])
-    if 3.75 <= LT_grade < 3.8:
-        pctGrade = interp(LT_grade, [3.75,3.8], [96,97])
-        return([pctGrade, "H A"])
-    if 3.70 <= LT_grade < 3.75:
-        pctGrade = interp(LT_grade, [3.70,3.75], [95,96])
-        return([pctGrade, "H A"])
-    if 3.65 <= LT_grade < 3.7:
-        pctGrade = interp(LT_grade, [3.65,3.7], [94,95])
-        return([pctGrade, "H A"])        
-    if 3.60 <= LT_grade < 3.65:
-        pctGrade = interp(LT_grade, [3.60,3.65], [93,94])
+    if 3.40 <= LT_grade < 4.00:
+        pctGrade = interp(LT_grade, [3.40, 4.00], [93,100])
         return([pctGrade, "H A"])
     
     #A-
-    if 3.5 <= LT_grade < 3.6:
-        pctGrade = interp(LT_grade, [3.5,3.6], [92,93])
-        return([pctGrade, "H A-"])
-    if 3.4 <= LT_grade < 3.5:
-        pctGrade = interp(LT_grade, [3.4,3.5], [92,92])
-        return([pctGrade, "H A-"])
-    if 3.35 <= LT_grade < 3.4:
-        pctGrade = interp(LT_grade, [3.35,3.4], [91,92])
-        return([pctGrade, "H A-"])
-    if 3.3 <= LT_grade < 3.35:
-        pctGrade = interp(LT_grade, [3.3,3.35], [90,91])
+    if 3.20 <= LT_grade < 3.39999:
+        pctGrade = interp(LT_grade, [3.20,3.39], [90,93])
         return([pctGrade, "H A-"])
     
     #B+
-    if 3.2 <= LT_grade < 3.3:
-        pctGrade = interp(LT_grade, [3.2, 3.3], [89,90])
-        return([pctGrade, "H B+"])
-    if 3.1 <= LT_grade < 3.2:
-        pctGrade = interp(LT_grade, [3.1, 3.2], [88,89])
-        return([pctGrade, "H B+"])
-    if 3.0 <= LT_grade < 3.1:
-        pctGrade = interp(LT_grade, [3.0, 3.1], [87,88])
+    if 3.05 <= LT_grade < 3.19999:
+        pctGrade = interp(LT_grade, [3.05, 3.19], [87,90])
         return([pctGrade, "H B+"])
     
     #B
-    if 2.9 <= LT_grade < 3.0:
-        pctGrade = interp(LT_grade, [2.9,3.0], [86,87])
+    if 2.80 <= LT_grade < 3.04999:
+        pctGrade = interp(LT_grade, [2.80,3.04], [83,87])
         return([pctGrade, "H B"])
-    if 2.8 <= LT_grade < 2.9:
-        pctGrade = interp(LT_grade, [2.8,2.9], [85,86])
-        return([pctGrade, "H B"])
-    if 2.7 <= LT_grade < 2.8:
-        pctGrade = interp(LT_grade, [2.7,2.8], [83,85])
-        return([pctGrade, "H B"]) 
 
     #B-
-    if 2.6 <= LT_grade < 2.7:
-        pctGrade = interp(LT_grade, [2.6,2.7], [82,83])
-        return([pctGrade, "H B-"])
-    if 2.5 <= LT_grade < 2.6:
-        pctGrade = interp(LT_grade, [2.5,2.6], [81,82])
-        return([pctGrade, "H B-"])
-    if 2.4 <= LT_grade < 2.5:
-        pctGrade = interp(LT_grade, [2.4,2.5], [80,81])
+    if 2.65 <= LT_grade < 2.7999:
+        pctGrade = interp(LT_grade, [2.65,2.79], [80,83])
         return([pctGrade, "H B-"])
 
     #C+
-    if 2.3 <= LT_grade < 2.4:
-        pctGrade = interp(LT_grade, [2.3,2.4], [79,80])
-        return([pctGrade, "H C+"])
-    if 2.2 <= LT_grade < 2.3:
-        pctGrade = interp(LT_grade, [2.2,2.3], [78,79])
-        return([pctGrade, "H C+"])
-    if 2.1 <= LT_grade < 2.2:
-        pctGrade = interp(LT_grade, [2.1,2.2], [77,78])
+    if 2.40 <= LT_grade < 2.6499:
+        pctGrade = interp(LT_grade, [2.40, 2.64], [77,80])
         return([pctGrade, "H C+"])
 
     #C
-    if 2.0 <= LT_grade < 2.1:
-        pctGrade = interp(LT_grade, [2.0,2.1], [76,77])
-        return([pctGrade, "H C"])
-    if 1.9 <= LT_grade < 2.0:
-        pctGrade = interp(LT_grade, [1.9,2.0], [75,76])
-        return([pctGrade, "H C"])
-    if 1.8 <= LT_grade < 1.9:
-        pctGrade = interp(LT_grade, [1.8,1.9], [73,75])
+    if 2.25 <= LT_grade < 2.3999:
+        pctGrade = interp(LT_grade, [2.25, 2.39], [73,77])
         return([pctGrade, "H C"])
     
     #C-
-    if 1.74 <= LT_grade < 1.8:
-        pctGrade = interp(LT_grade, [1.74,1.8], [76,77])
-        return([pctGrade, "C-"])
-    if 1.67 <= LT_grade < 1.74:
-        pctGrade = interp(LT_grade, [1.67,1.74], [75,76])
-        return([pctGrade, "C-"])
-    if 1.6 <= LT_grade < 1.67:
-        pctGrade = interp(LT_grade, [1.6,1.67], [70,71])
+    if 2.00 <= LT_grade < 2.2499:
+        pctGrade = interp(LT_grade, [2.00, 2.2499], [70,73])
         return([pctGrade, "C-"])
     
     #D+
-    if 1.54 <= LT_grade < 1.6:
-        pctGrade = interp(LT_grade, [1.54,1.6], [69,70])
-        return([pctGrade, "D+"])
-    if 1.47 <= LT_grade < 1.54:
-        pctGrade = interp(LT_grade, [1.47,1.54], [68,69])
-        return([pctGrade, "D+"])
-    if 1.4 <= LT_grade < 1.47:
-        pctGrade = interp(LT_grade, [1.4,1.47], [67,68])
+    if 1.75 <= LT_grade < 1.9999:
+        pctGrade = interp(LT_grade, [1.75,1.999], [67,70])
         return([pctGrade, "D+"])
     
     #D
-    if 1.34 <= LT_grade < 1.4:
-        pctGrade = interp(LT_grade, [1.34,1.4], [66,67])
-        return([pctGrade, "D"])
-    if 1.27 <= LT_grade < 1.34:
-        pctGrade = interp(LT_grade, [1.27,1.34], [65,66])
-        return([pctGrade, "D"])
-    if 1.2 <= LT_grade < 1.27:
-        pctGrade = interp(LT_grade, [1.2,1.27], [63,65])
+    if 1.50 <= LT_grade < 1.74999:
+        pctGrade = interp(LT_grade, [1.50,1.74999], [63,67])
         return([pctGrade, "D"])
 
     #D-
-    if 1.14 <= LT_grade < 1.2:
-        pctGrade = interp(LT_grade, [1.14,1.2], [62,63])
-        return([pctGrade, "D-"])
-    if 1.07 <= LT_grade < 1.14:
-        pctGrade = interp(LT_grade, [1.07,1.14], [61,62])
-        return([pctGrade, "D-"])
-    if 1.0 <= LT_grade < 1.07:
-        pctGrade = interp(LT_grade, [1.0,1.07], [60,61])
+    if 1.30 <= LT_grade < 1.4999:
+        pctGrade = interp(LT_grade, [1.30,1.4999], [60,63])
         return([pctGrade, "D-"])
     
-    if 0.0 <= LT_grade < 1.0:
-        pctGrade = interp(LT_grade, [0, 1.0], [50,60])
+    #F
+    if 1.00 <= LT_grade < 1.2999:
+        pctGrade = interp(LT_grade, [1.00, 1.29], [50,59.999])
         return([pctGrade, "F"])
+
+    if 0.0 <= LT_grade < 0.999:
+        pctGrade = interp(LT_grade, [0, 0.99], [0,50])
+        return([pctGrade, "F"])    
     
 # LT letter grade conversion for standard
 def percentGradeAdv(LT_grade):
+
     #A
-    if 3.85 <= LT_grade < 4:
-        pctGrade = interp(LT_grade, [3.85, 4.0], [99,100])
-        return([pctGrade, "Adv A"])
-    if 3.75 <= LT_grade < 3.85:
-        pctGrade = interp(LT_grade, [3.75, 3.85], [99,99])
-        return([pctGrade, "Adv A"])
-    if 3.60 <= LT_grade < 3.75:
-        pctGrade = interp(LT_grade, [3.60, 3.75], [98,99])
-        return([pctGrade, "Adv A"])    
-    if 3.50 <= LT_grade < 3.60:
-        pctGrade = interp(LT_grade, [3.50, 3.60], [97,98])
-        return([pctGrade, "Adv A"])    
-    if 3.35 <= LT_grade < 3.50:
-        pctGrade = interp(LT_grade, [3.35, 3.50], [96,97])
-        return([pctGrade, "Adv A"])
-    if 3.25 <= LT_grade < 3.35:
-        pctGrade = interp(LT_grade, [3.25, 3.35], [95,96])
-        return([pctGrade, "Adv A"])
-    if 3.10 <= LT_grade < 3.25:
-        pctGrade = interp(LT_grade, [3.10, 3.25], [94,95])
-        return([pctGrade, "Adv A"])
-    if 3.0 <= LT_grade < 3.10:
-        pctGrade = interp(LT_grade, [3.0, 3.10], [93,94])
+    if 3.00 <= LT_grade < 4.00:
+        pctGrade = interp(LT_grade, [3.00, 4.000], [93,100])
         return([pctGrade, "Adv A"])
     
     #A-
-    if 2.95 <= LT_grade < 3.0:
-        pctGrade = interp(LT_grade, [2.95, 3.0], [92,93])
+    if 2.85 <= LT_grade < 2.999999:
+        pctGrade = interp(LT_grade, [2.85, 2.99999], [90,93])
         return([pctGrade, "Adv A-"])
-    if 2.90 <= LT_grade < 2.95:
-        pctGrade = interp(LT_grade, [2.90, 2.95], [92,92])
-        return([pctGrade, "Adv A-"])
-    if 2.85 <= LT_grade < 2.90:
-        pctGrade = interp(LT_grade, [2.85, 2.90], [91,92])
-        return([pctGrade, "Adv A-"])   
-    if 2.80 <= LT_grade < 2.85:
-        pctGrade = interp(LT_grade, [2.80, 2.85], [90,91])
-        return([pctGrade, "Adv A-"])    
 
     #B+
-    if 2.74 <= LT_grade < 2.80:
-        pctGrade = interp(LT_grade, [2.74, 2.80], [89,90])
+    if 2.70 <= LT_grade < 2.8499999:
+        pctGrade = interp(LT_grade, [2.70, 2.8499999], [87,90])
         return([pctGrade, "Adv B+"])   
-    if 2.67 <= LT_grade < 2.74:
-        pctGrade = interp(LT_grade, [2.67, 2.74], [88,89])
-        return([pctGrade, "Adv B+"])
-    if 2.60 <= LT_grade < 2.67:
-        pctGrade = interp(LT_grade, [2.60, 2.67], [87,88])
-        return([pctGrade, "Adv B+"])
 
     #B
-    if 2.54 <= LT_grade < 2.60:
-        pctGrade = interp(LT_grade, [2.54, 2.60], [86,87])
+    if 2.55 <= LT_grade < 2.699999:
+        pctGrade = interp(LT_grade, [2.55, 2.699999], [83,87])
         return([pctGrade, "Adv B"])
-    if 2.47 <= LT_grade < 2.54:
-        pctGrade = interp(LT_grade, [2.47, 2.54], [85,86])
-        return([pctGrade, "Adv B"])
-    if 2.40 <= LT_grade < 2.47:
-        pctGrade = interp(LT_grade, [2.40, 2.47], [83,85])
-        return([pctGrade, "Adv B"]) 
     
     #B-
-    if 2.34 <= LT_grade < 2.40:
-        pctGrade = interp(LT_grade, [2.34, 2.4], [82,83])
+    if 2.40 <= LT_grade < 2.5499999:
+        pctGrade = interp(LT_grade, [2.40, 2.5499999], [80,83])
         return([pctGrade, "Adv B-"])
-    if 2.27 <= LT_grade < 2.34:
-        pctGrade = interp(LT_grade, [2.27, 2.34], [81,82])
-        return([pctGrade, "Adv B-"])
-    if 2.20 <= LT_grade < 2.27:
-        pctGrade = interp(LT_grade, [2.20, 2.27], [80,81])
-        return([pctGrade, "Adv B-"])
-    
+
     #C+
-    if 2.14 <= LT_grade < 2.20:
-        pctGrade = interp(LT_grade, [2.14, 2.20], [79,80])
-        return([pctGrade, "Adv C+"])
-    if 2.07 <= LT_grade < 2.14:
-        pctGrade = interp(LT_grade, [2.07, 2.14], [78,79])
-        return([pctGrade, "Adv C+"])
-    if 2.0 <= LT_grade < 2.07:
-        pctGrade = interp(LT_grade, [2.0, 2.07], [77,78])
+    if 2.20 <= LT_grade < 2.399999:
+        pctGrade = interp(LT_grade, [2.20, 2.399999], [77,80])
         return([pctGrade, "Adv C+"])
     
     #C
-    if 1.94 <= LT_grade < 2.0:
-        pctGrade = interp(LT_grade, [1.94, 2.0], [76,77])
-        return([pctGrade, "Adv C"])
-    if 1.87 <= LT_grade < 1.94:
-        pctGrade = interp(LT_grade, [1.87, 1.94], [75,76])
-        return([pctGrade, "Adv C"])
-    if 1.8 <= LT_grade < 1.87:
-        pctGrade = interp(LT_grade, [1.80, 1.87], [73,75])
+    if 2.00 <= LT_grade < 2.199999:
+        pctGrade = interp(LT_grade, [2.00, 2.199999], [73,77])
         return([pctGrade, "Adv C"])
     
-
     #C-
-    if 1.74 <= LT_grade < 1.8:
-        pctGrade = interp(LT_grade, [1.74,1.8], [72,73])
+    if 1.85 <= LT_grade < 1.99999:
+        pctGrade = interp(LT_grade, [1.85,1.99999], [70,73])
         return([pctGrade, "C-"])
-    if 1.67 <= LT_grade < 1.74:
-        pctGrade = interp(LT_grade, [1.67,1.74], [71,72])
-        return([pctGrade, "C-"])
-    if 1.6 <= LT_grade < 1.67:
-        pctGrade = interp(LT_grade, [1.6,1.67], [70,71])
-        return([pctGrade, "C-"])
-    
-    #D+
-    if 1.54 <= LT_grade < 1.6:
-        pctGrade = interp(LT_grade, [1.54,1.6], [69,70])
-        return([pctGrade, "D+"])
-    if 1.47 <= LT_grade < 1.54:
-        pctGrade = interp(LT_grade, [1.47,1.54], [68,69])
-        return([pctGrade, "D+"])
-    if 1.4 <= LT_grade < 1.47:
-        pctGrade = interp(LT_grade, [1.4,1.47], [67,68])
-        return([pctGrade, "D+"])
-    
-    #D
-    if 1.34 <= LT_grade < 1.4:
-        pctGrade = interp(LT_grade, [1.34,1.4], [66,67])
-        return([pctGrade, "D"])
-    if 1.27 <= LT_grade < 1.34:
-        pctGrade = interp(LT_grade, [1.27,1.34], [65,66])
-        return([pctGrade, "D"])
-    if 1.2 <= LT_grade < 1.27:
-        pctGrade = interp(LT_grade, [1.2,1.27], [63,65])
-        return([pctGrade, "D"])
 
+    #D+
+    if 1.65 <= LT_grade < 1.849999:
+        pctGrade = interp(LT_grade, [1.65,1.8499999], [67,70])
+        return([pctGrade, "D+"])
+
+    #D
+    if 1.50 <= LT_grade < 1.649999:
+        pctGrade = interp(LT_grade, [1.50,1.6499999], [63,67])
+        return([pctGrade, "D"])
+    
     #D-
-    if 1.14 <= LT_grade < 1.2:
-        pctGrade = interp(LT_grade, [1.14,1.2], [62,63])
-        return([pctGrade, "D-"])
-    if 1.07 <= LT_grade < 1.14:
-        pctGrade = interp(LT_grade, [1.07,1.14], [61,62])
-        return([pctGrade, "D-"])
-    if 1.0 <= LT_grade < 1.07:
-        pctGrade = interp(LT_grade, [1.0,1.07], [60,61])
+    if 1.30 <= LT_grade < 1.49999:
+        pctGrade = interp(LT_grade, [1.30,1.499999], [60,63])
         return([pctGrade, "D-"])
     
-    if 0.0 <= LT_grade < 1.0:
-        pctGrade = interp(LT_grade, [0, 1.0], [50,60])
+    #F
+    if 1.00 <= LT_grade < 1.299999:
+        pctGrade = interp(LT_grade, [1.00, 1.299999], [50,59.999])
+        return([pctGrade, "F"])
+
+    if 0.0 <= LT_grade < 0.99999:
+        pctGrade = interp(LT_grade, [0, 0.99999], [0,50])
         return([pctGrade, "F"])
 
 # Callback to upload formative file
