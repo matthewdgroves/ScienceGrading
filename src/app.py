@@ -178,11 +178,10 @@ def percentGradeH(LT_grade):
 
     if 0.0 <= LT_grade < 0.999:
         pctGrade = interp(LT_grade, [0, 0.99], [0,50])
-        return([pctGrade, "F"])    
-    
+        return([pctGrade, "F"])
+      
 # LT letter grade conversion for standard
 def percentGradeAdv(LT_grade):
-
     #A
     if 3.00 <= LT_grade < 4.00:
         pctGrade = interp(LT_grade, [3.00, 4.000], [93,100])
@@ -232,7 +231,7 @@ def percentGradeAdv(LT_grade):
     if 1.50 <= LT_grade < 1.649999:
         pctGrade = interp(LT_grade, [1.50,1.6499999], [63,67])
         return([pctGrade, "D"])
-    
+
     #D-
     if 1.30 <= LT_grade < 1.49999:
         pctGrade = interp(LT_grade, [1.30,1.499999], [60,63])
@@ -398,6 +397,8 @@ if __name__ == '__main__':
 
 # from dash_bootstrap_templates import load_figure_template
 # load_figure_template('COSMO')
+
+#to-do: import from the very base function in physicsGrading2425.py so there's less copy-pasting. Surely I can just add that to the main directory and reference it? 
 
 # Hope to add: get an emailed copy every time the app is run
 
