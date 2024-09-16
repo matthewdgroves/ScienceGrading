@@ -114,137 +114,62 @@ def parse_contents(contents, filename):
 
     return df
 
+# Helper function for interpolations
+def interpolate_and_return(grade, grade_range, pct_range, label):
+    pctGrade = interp(grade, grade_range, pct_range)
+    return [pctGrade, label]
+
 # LT letter grade conversion for Honors
 def percentGradeH(LT_grade):
-    #A
-    if 3.40 <= LT_grade < 4.00:
-        pctGrade = interp(LT_grade, [3.40, 4.00], [93,100])
-        return([pctGrade, "H A"])
-    
-    #A-
-    if 3.20 <= LT_grade < 3.39999:
-        pctGrade = interp(LT_grade, [3.20,3.39], [90,93])
-        return([pctGrade, "H A-"])
-    
-    #B+
-    if 3.05 <= LT_grade < 3.19999:
-        pctGrade = interp(LT_grade, [3.05, 3.19], [87,90])
-        return([pctGrade, "H B+"])
-    
-    #B
-    if 2.80 <= LT_grade < 3.04999:
-        pctGrade = interp(LT_grade, [2.80,3.04], [83,87])
-        return([pctGrade, "H B"])
 
-    #B-
-    if 2.65 <= LT_grade < 2.7999:
-        pctGrade = interp(LT_grade, [2.65,2.79], [80,83])
-        return([pctGrade, "H B-"])
-
-    #C+
-    if 2.40 <= LT_grade < 2.6499:
-        pctGrade = interp(LT_grade, [2.40, 2.64], [77,80])
-        return([pctGrade, "H C+"])
-
-    #C
-    if 2.25 <= LT_grade < 2.3999:
-        pctGrade = interp(LT_grade, [2.25, 2.39], [73,77])
-        return([pctGrade, "H C"])
+    grade_categories = [
+        (3.40, 4.00, [93, 100], "H A"),
+        (3.20, 3.3999999, [90, 93], "H A-"),
+        (3.05, 3.1999999, [87, 90], "H B+"),
+        (2.80, 3.0499999, [83, 87], "H B"),
+        (2.65, 2.7999999, [80, 83], "H B-"),
+        (2.40, 2.6499999, [77, 80], "H C+"),
+        (2.25, 2.3999999, [73, 77], "H C"),
+        (2.00, 2.2499999, [70, 73], "C-"),
+        (1.75, 1.9999999, [67, 70], "D+"),
+        (1.50, 1.7499999, [63, 67], "D"),
+        (1.30, 1.4999999, [60, 63], "D-"),
+        (1.00, 1.2999999, [50, 59.999], "F"),
+        (0.00, 0.9999999, [0, 50], "F")
+    ]
     
-    #C-
-    if 2.00 <= LT_grade < 2.2499:
-        pctGrade = interp(LT_grade, [2.00, 2.2499], [70,73])
-        return([pctGrade, "C-"])
-    
-    #D+
-    if 1.75 <= LT_grade < 1.9999:
-        pctGrade = interp(LT_grade, [1.75,1.999], [67,70])
-        return([pctGrade, "D+"])
-    
-    #D
-    if 1.50 <= LT_grade < 1.74999:
-        pctGrade = interp(LT_grade, [1.50,1.74999], [63,67])
-        return([pctGrade, "D"])
+    for lower_bound, upper_bound, pct_range, label in grade_categories:
+        if lower_bound <= LT_grade < upper_bound:
+            return interpolate_and_return(LT_grade, [lower_bound, upper_bound], pct_range, label)
 
-    #D-
-    if 1.30 <= LT_grade < 1.4999:
-        pctGrade = interp(LT_grade, [1.30,1.4999], [60,63])
-        return([pctGrade, "D-"])
-    
-    #F
-    if 1.00 <= LT_grade < 1.2999:
-        pctGrade = interp(LT_grade, [1.00, 1.29], [50,59.999])
-        return([pctGrade, "F"])
+    # Handle out-of-range values
+    return [None, "Invalid grade"]
 
-    if 0.0 <= LT_grade < 0.999:
-        pctGrade = interp(LT_grade, [0, 0.99], [0,50])
-        return([pctGrade, "F"])
-      
 # LT letter grade conversion for standard
 def percentGradeAdv(LT_grade):
-    #A
-    if 3.00 <= LT_grade < 4.00:
-        pctGrade = interp(LT_grade, [3.00, 4.000], [93,100])
-        return([pctGrade, "Adv A"])
-    
-    #A-
-    if 2.85 <= LT_grade < 2.999999:
-        pctGrade = interp(LT_grade, [2.85, 2.99999], [90,93])
-        return([pctGrade, "Adv A-"])
 
-    #B+
-    if 2.70 <= LT_grade < 2.8499999:
-        pctGrade = interp(LT_grade, [2.70, 2.8499999], [87,90])
-        return([pctGrade, "Adv B+"])   
+    grade_categories = [
+        (3.00, 4.00, [93, 100], "Adv A"),
+        (2.85, 2.999999, [90, 93], "Adv A-"),
+        (2.70, 2.8499999, [87, 90], "Adv B+"),
+        (2.55, 2.699999, [83, 87], "Adv B"),
+        (2.40, 2.5499999, [80, 83], "Adv B-"),
+        (2.20, 2.399999, [77, 80], "Adv C+"),
+        (2.00, 2.199999, [73, 77], "Adv C"),
+        (1.85, 1.99999, [70, 73], "C-"),
+        (1.65, 1.849999, [67, 70], "D+"),
+        (1.50, 1.649999, [63, 67], "D"),
+        (1.30, 1.49999, [60, 63], "D-"),
+        (1.00, 1.299999, [50, 59.999], "F"),
+        (0.0, 0.99999, [0, 50], "F")
+    ]
 
-    #B
-    if 2.55 <= LT_grade < 2.699999:
-        pctGrade = interp(LT_grade, [2.55, 2.699999], [83,87])
-        return([pctGrade, "Adv B"])
-    
-    #B-
-    if 2.40 <= LT_grade < 2.5499999:
-        pctGrade = interp(LT_grade, [2.40, 2.5499999], [80,83])
-        return([pctGrade, "Adv B-"])
+    for lower_bound, upper_bound, pct_range, label in grade_categories:
+        if lower_bound <= LT_grade < upper_bound:
+            return interpolate_and_return(LT_grade, [lower_bound, upper_bound], pct_range, label)
 
-    #C+
-    if 2.20 <= LT_grade < 2.399999:
-        pctGrade = interp(LT_grade, [2.20, 2.399999], [77,80])
-        return([pctGrade, "Adv C+"])
-    
-    #C
-    if 2.00 <= LT_grade < 2.199999:
-        pctGrade = interp(LT_grade, [2.00, 2.199999], [73,77])
-        return([pctGrade, "Adv C"])
-    
-    #C-
-    if 1.85 <= LT_grade < 1.99999:
-        pctGrade = interp(LT_grade, [1.85,1.99999], [70,73])
-        return([pctGrade, "C-"])
-
-    #D+
-    if 1.65 <= LT_grade < 1.849999:
-        pctGrade = interp(LT_grade, [1.65,1.8499999], [67,70])
-        return([pctGrade, "D+"])
-
-    #D
-    if 1.50 <= LT_grade < 1.649999:
-        pctGrade = interp(LT_grade, [1.50,1.6499999], [63,67])
-        return([pctGrade, "D"])
-
-    #D-
-    if 1.30 <= LT_grade < 1.49999:
-        pctGrade = interp(LT_grade, [1.30,1.499999], [60,63])
-        return([pctGrade, "D-"])
-    
-    #F
-    if 1.00 <= LT_grade < 1.299999:
-        pctGrade = interp(LT_grade, [1.00, 1.299999], [50,59.999])
-        return([pctGrade, "F"])
-
-    if 0.0 <= LT_grade < 0.99999:
-        pctGrade = interp(LT_grade, [0, 0.99999], [0,50])
-        return([pctGrade, "F"])
+    # Handle out-of-range values
+    return [None, "Invalid grade"]
 
 # Callback to upload formative file
 @app.callback(Output('output-data-upload1', 'children'),
