@@ -66,7 +66,14 @@ row2 = html.Div(
                 # Allow multiple files to be uploaded
                 multiple=False),
             ])
-        ])
+        ]),
+
+        dbc.Row([
+            dcc.Checklist(
+                id = "my_checklist",
+                options=['Check for Biology Class'],
+                value=[]
+            )])
     ]
 )
 
@@ -118,6 +125,7 @@ def parse_contents(contents, filename):
 def interpolate_and_return(grade, grade_range, pct_range, label):
     pctGrade = interp(grade, grade_range, pct_range)
     return [pctGrade, label]
+
 
 # LT letter grade conversion for Honors
 def percentGradeH(LT_grade):
@@ -214,21 +222,28 @@ def upload_file_2(contents, filename):
         Output('output-data-upload1', 'children', allow_duplicate=True),
         Output('output-data-upload2', 'children', allow_duplicate=True),
         Output('output-data-upload3', 'children'),
-              [Input('merge-data-btn', 'n_clicks')],
+              [Input('merge-data-btn', 'n_clicks'),
+               Input('my_checklist', component_property='value')],
               [dash.dependencies.State('formative-data', 'contents'),
                dash.dependencies.State('formative-data', 'filename'),
                dash.dependencies.State('summative-data', 'contents'),
                dash.dependencies.State('summative-data', 'filename')])
-def merge_and_display(n_clicks, formative_contents, formative_filename, summative_contents, summative_filename):
+def merge_and_display(n_clicks, biology, formative_contents, formative_filename, summative_contents, summative_filename):
     if n_clicks == 0:
         raise PreventUpdate
+
 
     if formative_contents is None or summative_contents is None:
         raise PreventUpdate
 
     # import formative data, keep only the one relevant column, name, and ID 
     f_df = parse_contents(formative_contents, formative_filename)
-    f_df['Formative Pct Grade'] = list(f_df['Formative Assignments Current Score'])
+
+    if biology:
+        f_df['Formative Pct Grade'] = list(f_df['Formative Assessments Current Score'])
+    else:
+        f_df['Formative Pct Grade'] = list(f_df['Formative Assignments Current Score']) 
+
     f_df = f_df[["Student", "ID", 'Formative Pct Grade']]
 
 
