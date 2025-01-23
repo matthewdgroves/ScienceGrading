@@ -293,6 +293,9 @@ def merge_and_display(n_clicks, biology, formative_contents, formative_filename,
     merged_df = pd.merge(f_df, s_df, on='Student ID', how='inner')
     merged_df = merged_df[['Student', 'Formative Pct Grade','LT Average', 'LT Letter Grade: H', 'Summative Pct Grade: H', "LT Letter Grade: Adv",'Summative Pct Grade: Adv']]
 
+    # I merged here with the Student ID so the "Points Possible" error never even matters on the web app. 
+    # desktop version from merging by name is good too but this works fine so I'll leave it
+    # MG January 2025
 
     formativeNumGrades = list(merged_df["Formative Pct Grade"])
     summativeNumGradesH = merged_df['Summative Pct Grade: H']
