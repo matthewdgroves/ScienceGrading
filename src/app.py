@@ -244,7 +244,7 @@ def merge_and_display(n_clicks, biology, formative_contents, formative_filename,
     else:
         f_df['Formative Pct Grade'] = list(f_df['Formative Assignments Current Score']) 
 
-    f_df = f_df[["Student", "ID", 'Formative Pct Grade']]
+    f_df = f_df[["Student", "ID", 'Section', 'Formative Pct Grade']]
 
 
     s_df = parse_contents(summative_contents, summative_filename)
@@ -291,7 +291,7 @@ def merge_and_display(n_clicks, biology, formative_contents, formative_filename,
 
     # Merge dataframes based on a common column, using the ID was easier than trying to re-order the names to match (one was "first last", the other was "last, first")
     merged_df = pd.merge(f_df, s_df, on='Student ID', how='inner')
-    merged_df = merged_df[['Student', 'Formative Pct Grade','LT Average', 'LT Letter Grade: H', 'Summative Pct Grade: H', "LT Letter Grade: Adv",'Summative Pct Grade: Adv']]
+    merged_df = merged_df[['Student', 'Section', 'Formative Pct Grade','LT Average', 'LT Letter Grade: H', 'Summative Pct Grade: H', "LT Letter Grade: Adv",'Summative Pct Grade: Adv']]
 
     # I merged here with the Student ID so the "Points Possible" error never even matters on the web app. 
     # desktop version from merging by name is good too but this works fine so I'll leave it
