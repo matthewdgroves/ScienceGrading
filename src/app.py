@@ -74,6 +74,12 @@ row2 = html.Div(
                 options=['Check for Biology Class'],
                 value=[]
             )])
+        dbc.Row([
+            dcc.Checklist(
+                id = "my_checklist2",
+                options=['Check for _Physics Class'],
+                value=[]
+            )])
     ]
 )
 
