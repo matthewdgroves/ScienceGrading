@@ -79,7 +79,14 @@ row2 = html.Div(
                 id = "my_checklist2",
                 options=['Check for _Physics Class'],
                 value=[]
-            )])
+            )]),
+        dbc.Row([
+            dbc.Col([
+                html.H5("The default class selection is Adv. Physics. Choose an alternative if applicable:"),
+            ],
+                style = {'margin-left':'5px', 'margin-top':'7px', 'margin-right':'5px'}
+            )
+        ])
     ]
 )
 
